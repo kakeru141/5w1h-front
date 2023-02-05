@@ -12,7 +12,7 @@
 		| null
 		| undefined;
 	export let label: string;
-	
+
 	const onChange = (
 		e: Event & {
 			currentTarget: EventTarget & HTMLInputElement;
@@ -22,18 +22,18 @@
 	};
 </script>
 
-<div class="text-field-standard">
+<div class="text-field-fill">
 	<label for={id}>{label}</label>
-	<div class="text-field-standard__input-container">
+	<div class="text-field-fill__input-container">
 		<input {id} {type} {value} on:input={onChange} placeholder=" " />
 	</div>
 </div>
 
 <style lang="scss">
-	.text-field-standard {
+	.text-field-fill {
 		margin: 8px;
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		height: 56px;
 		width: 25ch;
 		position: relative;
@@ -43,25 +43,36 @@
 			position: absolute;
 			color: rgba(0, 0, 0, 0.6);
 			transition: 0.2s;
+			cursor: text;
 			left: 16px;
-			bottom: calc(8px + 2px);
+			user-select: none;
 
-			&:has(+ .text-field-standard__input-container > input:focus) {
+			&:has(+ .text-field-fill__input-container > input:focus) {
 				color: #1976d2;
-				transform: translate(0, -24px) scale(0.75);
+				transform: translate(0, -12px) scale(0.75);
 			}
-			&:not(:has(+ .text-field-standard__input-container > input:placeholder-shown)) {
+			&:not(:has(+ .text-field-fill__input-container > input:placeholder-shown)) {
 				color: #1976d2;
-				transform: translate(0, -24px) scale(0.75);
+				transform: translate(0, -12px) scale(0.75);
 			}
 		}
-		.text-field-standard__input-container {
+		.text-field-fill__input-container {
 			display: inline-flex;
 			align-items: flex-end;
 			width: 100%;
-			margin-top: 16px;
+			height: 100%;
 			position: relative;
+			background-color: rgba(0, 0, 0, 0.06);
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
 
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.09);
+
+				&::before {
+					border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+				}
+			}
 			&::before {
 				position: absolute;
 				border-bottom: 1px solid rgba(0, 0, 0, 0.42);
@@ -69,7 +80,6 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
-				transition: 0.2s;
 			}
 			&::after {
 				position: absolute;
@@ -82,12 +92,6 @@
 				transform: scaleX(0);
 			}
 
-			&:hover {
-				&::before {
-					border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-				}
-			}
-
 			&:has(input:focus) {
 				&::after {
 					transform: scaleX(1);
@@ -98,9 +102,9 @@
 					transform: scaleX(1);
 				}
 			}
+
 			input {
-				padding-top: 8px;
-				padding-bottom: calc(8px + 2px);
+				padding: 26px 16px calc(8px + 2px);
 			}
 		}
 	}
