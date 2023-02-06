@@ -1,16 +1,7 @@
 <script lang="ts">
-	export let id: string | null | undefined;
-	export let value: string | number | undefined | null;
-	export let type:
-		| 'text'
-		| 'number'
-		| 'tel'
-		| 'email'
-		| 'url'
-		| 'password'
-		| 'search'
-		| null
-		| undefined;
+	export let id: string | undefined;
+	export let value: string | number | undefined;
+	export let type: 'text' | 'number' | 'tel' | 'email' | 'url' | 'password' | 'search' | undefined;
 	export let label: string;
 
 	const onChange = (
@@ -45,7 +36,8 @@
 			transition: 0.2s;
 			cursor: text;
 			left: 16px;
-			user-select: none;
+			pointer-events: none;
+			z-index: 1;
 
 			&:has(+ .text-field-fill__input-container > input:focus) {
 				color: #1976d2;
@@ -62,12 +54,15 @@
 			width: 100%;
 			height: 100%;
 			position: relative;
-			background-color: rgba(0, 0, 0, 0.06);
+			// background-color: rgba(25, 118, 210, 0.1);
+			background-color: #E3F2FD;
 			border-top-left-radius: 8px;
 			border-top-right-radius: 8px;
+			transition: .2s;
 
 			&:hover {
-				background-color: rgba(0, 0, 0, 0.09);
+				background-color: #BBDEFB;
+				// background-color: rgba(25, 118, 210, 0.2);
 
 				&::before {
 					border-bottom: 1px solid rgba(0, 0, 0, 0.7);
@@ -104,6 +99,7 @@
 			}
 
 			input {
+				font-size: 1em;
 				padding: 26px 16px calc(8px + 2px);
 			}
 		}
