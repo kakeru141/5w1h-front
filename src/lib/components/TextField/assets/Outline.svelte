@@ -1,18 +1,9 @@
 <script lang="ts">
-	export let id: string | null | undefined;
-	export let value: string | number | undefined | null;
-	export let type:
-		| 'text'
-		| 'number'
-		| 'tel'
-		| 'email'
-		| 'url'
-		| 'password'
-		| 'search'
-		| null
-		| undefined;
+	export let id: string | undefined;
+	export let value: string | number | undefined;
+	export let type: 'text' | 'number' | 'tel' | 'email' | 'url' | 'password' | 'search' | undefined;
 	export let label: string;
-	
+
 	const onChange = (
 		e: Event & {
 			currentTarget: EventTarget & HTMLInputElement;
@@ -67,7 +58,22 @@
 			transition: 0.2s;
 		}
 		input {
+			font-size: 1em;
 			padding: 18.5px 16px;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		.text-field-outline {
+			border: 1px solid #bbb;
+			&:hover {
+				border: 1px solid #ccc;
+			}
+			&:has(input:focus) {
+				border: 2px solid #64b5f6;
+				label {
+					color: #64b5f6;
+				}
+			}
 		}
 	}
 </style>
