@@ -19,6 +19,14 @@
 
 <style lang="scss">
 	button {
+		margin: 8px;
+		line-height: 20px;
+		font-weight: 500;
+		font-size: .9em;
+		border-radius: 20px;
+		min-width: 40px;
+		padding: 0 24px;
+		height: 40px;
 		background: none;
 
 		&:has(.start-icon) {
