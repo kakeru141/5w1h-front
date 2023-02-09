@@ -1,16 +1,26 @@
 <script lang="ts">
 	import Button from '$lib/components/Button/Button.svelte';
+	import Tab from '$lib/components/Tab/Tab.svelte';
 	import TextField from '$lib/components/TextField/TextField.svelte';
 
-	let isRegister = false;
-	let value: string | number | undefined = '';
 	import { UserPlusSolid, UserCheckSolid } from 'svelte-awesome-icons';
+	import { ArrowLeftSolid, ArrowRightSolid, ArrowUpSolid } from 'svelte-awesome-icons';
+
+
+	const tabs = [
+		{ text: 'Flights', icon: ArrowLeftSolid, content: Button },
+		{ text: 'manu222222',icon: ArrowLeftSolid,  content: Button },
+		{ text: 'manu3', icon: ArrowUpSolid, content: Button },
+		{ text: 'あいうえお', icon: ArrowUpSolid, content: Button },
+	];
 </script>
 
 <main>
-	<TextField label="test" variant="outline" type="text" {value} />
-	<TextField label="test" variant="standard" type="text" {value} />
-	<TextField label="test" variant="fill" type="text" {value} />
+	<Tab {tabs} />
+	<Tab {tabs} variant='secondary' />
+	<TextField label="test" variant="outline" type="text" />
+	<TextField label="test" variant="standard" type="text" />
+	<TextField label="test" variant="fill" type="text" />
 
 	<Button variant="outline">
 		<UserCheckSolid size="18px" slot="startIcon" />
@@ -41,8 +51,7 @@
 
 <style lang="scss">
 	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		margin: 16px auto;
+		width: 80%;
 	}
 </style>

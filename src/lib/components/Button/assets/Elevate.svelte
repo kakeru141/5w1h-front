@@ -19,6 +19,14 @@
 
 <style lang="scss">
 	button {
+		margin: 8px;
+		line-height: 20px;
+		font-weight: 500;
+		font-size: .9em;
+		border-radius: 20px;
+		min-width: 40px;
+		padding: 0 24px;
+		height: 40px;
 		color: #1976d2;
 		background-color: rgba(25, 118, 210, 0.1);
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
